@@ -20,7 +20,11 @@ fs.readFile(__dirname + '/server-conf.json', function (err, data) {
 				.replace(/[\s\r\n]+$/, '')
 				.replace('&amp;', '&');
 			if (url.indexOf('http') === 0) {
-				spawn('xdg-open', [ url ]);
+				var app = 'xdg-open';
+				if (process.platform === 'win32') {
+					app = 'explorer.exe';
+				}
+				spawn(app, [ url ]);
 			}
 		});
 	});

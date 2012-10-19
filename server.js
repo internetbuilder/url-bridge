@@ -2,8 +2,9 @@
 
 process.title = 'node-url-bridge';
 
-var fs = require('fs');
-var net = require('net');
+var fs    = require('fs');
+var net   = require('net');
+var os    = require('os');
 var spawn = require('child_process').spawn;
 
 fs.readFile(__dirname + '/server-conf.json', function (err, data) {
@@ -21,8 +22,11 @@ fs.readFile(__dirname + '/server-conf.json', function (err, data) {
 				.replace('&amp;', '&');
 			if (url.indexOf('http') === 0) {
 				var app = 'xdg-open';
-				if (process.platform === 'win32') {
+				if (os.platform === 'win32') {
 					app = 'explorer.exe';
+				}
+				else if (os.platform === 'darwin') {
+					app = 'open';
 				}
 				spawn(app, [ url ]);
 			}

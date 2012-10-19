@@ -20,7 +20,13 @@ Client config is also simple.  Edit client-conf.json with the IP/Hostname and po
 
 ## Misc
 
-Currently the server is designed to run on Linux based systems and uses `xdg-open` to open the URLs.
+The server uses the following to open urls:
+
+- xdg-open on GNU/Linux based systems
+- explorer.exe on Windows systems
+- open on OSX systems
+
+
 The included `URLBridge.reg` file can be used on Windows (tested on Windows 7) to set the default browser
 to be URL-Bridge.  It assumes that URL-Bridge is located at `C:\URLBridge\` and that `nodejs.exe` is
 located at `C:\Program Files\nodejs\node.exe`.  It can be edited if required to change the locations.
@@ -28,6 +34,5 @@ located at `C:\Program Files\nodejs\node.exe`.  It can be edited if required to 
 ## Todo
 
 - Encryption: Currently plain URLs are sent across the wire. Encryption should be added for security.
-- Support for other operating systems.
 
 Pull-requests welcome!

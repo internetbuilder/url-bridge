@@ -16,6 +16,11 @@ fs.readFile(__dirname + '/server-conf.json', function (err, data) {
 	var config = JSON.parse(data);
 
 	var server = net.createServer(function(socket) {
+
+		if (config.sources.indexOf(socket.remoteAddress) === -1) {
+			socket.destroy();
+		}
+
 		socket.on('data', function(data) {
 			var url = data.toString()
 				.replace(/[\s\r\n]+$/, '')

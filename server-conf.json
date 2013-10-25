@@ -1,3 +1,4 @@
 {
-	"listen": 11223
+	"listen": 11223,
+	"sources": []
 }

@@ -34,9 +34,13 @@ The server uses the following to open urls:
 - `explorer.exe` on Windows systems
 - `open` on OSX systems
 
-The included `URLBridge.reg` file can be used on Windows (tested on Windows 7) to set the default browser
-to be URL-Bridge.  It assumes that URL-Bridge is located at `C:\URLBridge\` and that `nodejs.exe` is
-located at `C:\Program Files\nodejs\node.exe`.  It can be edited if required to change the locations.
+Two registry files are included, `URLBridge-win7.reg` and `URLBridge-win8.reg` which can be used to
+to register URLBridge as the default browser.  For Windows 7 simply run the `URLBridge-win7.reg` file.
+For Windows 8 run `URLBridge-win8.reg` and then change your default browser - it will appear as a Node.js
+application in the browser list.
+
+Both files assume that URL-Bridge is located at `C:\URLBridge\` and that `nodejs.exe` is
+located at `C:\Program Files\nodejs\node.exe`.  They can be edited if required to change the locations.
 
 ## Todo
 
